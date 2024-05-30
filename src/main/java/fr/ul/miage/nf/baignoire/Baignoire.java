@@ -31,6 +31,19 @@ public class Baignoire {
         return capacite <= volume;
     }
 
+    public double getCapacite() {
+        return capacite;
+    }
 
+    public double getVolume() {
+        return volume;
+    }
 
+    public void setCapacite(double capacite) {
+        this.capacite = capacite;
+    }
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
 }

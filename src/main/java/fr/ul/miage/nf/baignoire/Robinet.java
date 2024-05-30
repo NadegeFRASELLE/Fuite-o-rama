@@ -12,12 +12,13 @@ public class Robinet extends ScheduledService<Baignoire> {
 
     private final double DEBIT_MAX_ROBINET = 100;
 
+    private final double DEBIT_DEFAUT_ROBINET = 6;
+
     private static final Logger LOG = Logger.getLogger(Robinet.class.getName());
 
-    public Robinet(double debitRobinet) {
-        this.debitRobinet = debitRobinet;
+    public Robinet() {
+        this.debitRobinet = DEBIT_DEFAUT_ROBINET;
     }
-
 
     @Override
     protected Task<Baignoire> createTask() {

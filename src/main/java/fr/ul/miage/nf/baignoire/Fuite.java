@@ -13,7 +13,13 @@ public class Fuite extends ScheduledService<Baignoire> {
 
     private final double DEBIT_MAX_FUITE = 50;
 
+    private final double DEBIT_DEFAUT_FUITE = 3;
+
     private static final Logger LOG = Logger.getLogger(Fuite.class.getName());
+
+    public Fuite() {
+        this.debitFuite = DEBIT_DEFAUT_FUITE;
+    }
 
     @Override
     protected Task<Baignoire> createTask() {
