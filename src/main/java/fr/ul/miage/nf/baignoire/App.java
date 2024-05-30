@@ -1,2 +1,4 @@
-package fr.ul.miage.nf.baignoire;public class App {
+package fr.ul.miage.nf.baignoire;
+
+public class App {
 }

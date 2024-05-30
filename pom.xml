@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>fr.ul.miage.nf</groupId>
-    <artifactId>verre</artifactId>
+    <artifactId>baignoire</artifactId>
     <version>1.0</version>
 
     <properties>
@@ -13,7 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.bindist.dir>${project.basedir}/bindist</project.bindist.dir>
-        <project.bin.appname>verre</project.bin.appname>
+        <project.bin.appname>baignoire</project.bin.appname>
         <project.main.classname>${project.groupId}.${project.artifactId}.Launcher</project.main.classname>
     </properties>
 
@@ -65,7 +65,7 @@
                 </executions>
                 <configuration>
                     <descriptors>
-                        <descriptor>../verre/zip.xml</descriptor>
+                        <descriptor>zip.xml</descriptor>
                     </descriptors>
                     <appendAssemblyId>true</appendAssemblyId>
                 </configuration>
