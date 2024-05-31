@@ -31,6 +31,14 @@ public class Baignoire {
         return capacite <= volume;
     }
 
+    public void remplir(double debitRobinet) {
+        volume = Math.min(volume + debitRobinet, capacite);
+    }
+
+    public void fuiter(double debitFuite) {
+        volume = Math.max(volume - debitFuite, 0);
+    }
+
     public double getCapacite() {
         return capacite;
     }

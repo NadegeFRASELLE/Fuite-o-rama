@@ -1,18 +1,22 @@
 package fr.ul.miage.nf.baignoire;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.stream.IntStream;
 
 public class Simulation {
     Baignoire baignoire = Baignoire.getInstance();
-    LinkedList<Robinet> robinets = new LinkedList<>();
-    LinkedList<Fuite> fuites = new LinkedList<>();
+    List<Robinet> robinets = new ArrayList<>();
+    List<Fuite> fuites = new ArrayList<>();
+    boolean isSimulationRunning = false;
+
+//  ScheduledExecutorService pool = Executors.newScheduledThreadPool(calculerTailleThreadPool());
     private static final Logger LOG = Logger.getLogger(Simulation.class.getName());
 
-    public Simulation(int numRobinets, int numFuites, double capacitéBaignoire) {
-        baignoire.setCapacite(capacitéBaignoire);
+    public Simulation(int numRobinets, int numFuites, double capaciteBaignoire) {
+        baignoire.setCapacite(capaciteBaignoire);
         LOG.info("La baignoire a désormais une capacité de " + baignoire.getCapacite());
         robinets = creationRobinets(numRobinets);
         LOG.info(robinets.size() + " robinets ont été créés.");
@@ -28,27 +32,21 @@ public class Simulation {
         LOG.info(fuites.size() + " fuites ont été créées.");
     }
 
-    private void reparerFuite(int idFuite) {
-        //réparer fuite ==> débit = 0 ? Fermer fuite ?
-    }
-    private void changerDebitRobinet(int idRobinet, double debit) {
-        Robinet robinet = robinets.get(idRobinet);
-        robinet.setDebitRobinet(debit);
-        System.out.println("Le débit du robinet " + (idRobinet +1) + " est passé à " + robinet.getDebitRobinet() + "litres par minutes.");
+    public void reparerFuite(Fuite fuite) {
+        fuite.cancel();
+        LOG.info("La fuite n°" + fuite.getIdFuite() + " a été réparée.");
     }
 
-    private LinkedList<Robinet> creationRobinets(int nbRobinets) {
-        return Stream.generate(Robinet::new)
-                .limit(nbRobinets)
-                .collect(Collectors.toCollection(LinkedList::new));
+    private ArrayList<Robinet> creationRobinets(int nbRobinets) {
+        return IntStream.range(0,nbRobinets)
+                .mapToObj(i -> new Robinet(i+1))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
-    private LinkedList<Fuite> creationFuites(int nbFuites) {
-        return Stream.generate(Fuite::new)
-                .limit(nbFuites)
-                .collect(Collectors.toCollection(LinkedList::new));
+    private ArrayList<Fuite> creationFuites(int nbFuites) {
+        return IntStream.range(0, nbFuites)
+                .mapToObj(i -> new Fuite (i+1))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
-
-
 
 }
