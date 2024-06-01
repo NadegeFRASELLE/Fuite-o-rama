@@ -64,16 +64,19 @@ public class Controller {
     TextArea infosTA;
 
     @FXML
-    CategoryAxis xAxis = new CategoryAxis();
+    NumberAxis xAxis = new NumberAxis();
 
     @FXML
     NumberAxis yAxis = new NumberAxis();
 
     @FXML
-    LineChart<String, Number> graphReport = new LineChart<>(xAxis, yAxis);
+    LineChart<Number, Number> graphReport = new LineChart<>(xAxis, yAxis);
 
     @FXML
     Button btnCSV;
+
+    @FXML
+    Button clearGraphBtn;
 
     @FXML
     public void initialize() {
@@ -116,6 +119,7 @@ public class Controller {
                 currentlySelectedFuite = listeFuites.getSelectionModel().getSelectedItem();
             }
         });
+        infosTA.setWrapText(true);
 
     }
     @FXML
@@ -136,7 +140,7 @@ public class Controller {
             robinet.setOnSucceeded((WorkerStateEvent e) -> {
                 simulation.writeInSimulationReport();
                 fillOrEmptyBaignoire();
-                baignoirePleineProcedure();
+                baignoirePleineProcedure(robinet);
             });
             robinet.setPeriod(Duration.seconds(1));
             robinet.reset();
@@ -146,7 +150,7 @@ public class Controller {
             fuite.setOnSucceeded((WorkerStateEvent e) -> {
                 simulation.writeInSimulationReport();
                 fillOrEmptyBaignoire();
-                baignoirePleineProcedure();
+                baignoirePleineProcedure(fuite);
             });
             fuite.setPeriod(Duration.seconds(1));
             fuite.reset();
@@ -159,16 +163,17 @@ public class Controller {
         baignoireImage.setHeight(simulation.baignoire.getVolume());
     }
 
-    private void baignoirePleineProcedure() {
+    private void baignoirePleineProcedure(ScheduledService<Baignoire> service) {
         if(simulation.baignoire.estPleine()) {
-            simulation.robinets.forEach(ScheduledService::cancel);
-            simulation.fuites.forEach(ScheduledService::cancel);
-            simulation.updateFuitesFinSimulation();
-            simulation.simulationReport.finSimulation = Instant.now();
-            buildLineChart();
-            simulation.isSimulationRunning = false;
-            boutonDemarrer.setDisable(false);
-
+            service.cancel();
+            if(simulation.isSimulationRunning) { //si la simulation est encore en cours, on l'arrete (mais une seule fois)
+                simulation.updateFuitesFinSimulation(listeFuites.getItems());
+                simulation.simulationReport.finSimulation = Instant.now();
+                buildLineChart();
+                infosTA.setText(simulation.simulationReport.afficherInfosSimulation());
+                simulation.isSimulationRunning = false;
+                boutonDemarrer.setDisable(false);
+            }
         }
     }
 
@@ -290,24 +295,24 @@ public class Controller {
         listeFuites.refresh();
     }
 
+    @FXML
+    private void clearGraph() {
+        graphReport.getData().clear();
+    }
+
     private void buildLineChart() {
         graphReport.setTitle("Évolution du volume de la baignoire");
-        xAxis.setLabel("Moment");
+        xAxis.setLabel("Moment (en millisecondes");
         yAxis.setLabel("Volume de la baignoire");
         XYChart.Series series = new XYChart.Series();
         series.setName("Simulation du " + Instant.now());
-        for (Map.Entry<String, String> entry : simulation.simulationReport.reportingData.entrySet()) {
-            String rawDuration = entry.getKey(); // Clé en catégorie
-            Number y = Double.parseDouble(entry.getValue());
-
-            java.time.Duration duration = java.time.Duration.parse(rawDuration);
-            double seconds = duration.toMillis() / 1000.0;
-            String formattedDuration = String.format("%.3f", seconds);
-
-            series.getData().add(new XYChart.Data<>(formattedDuration, y));
-        }
+        simulation.simulationReport.reportingData.forEach((key, value) -> series.getData().add(new XYChart.Data<>(key, value)));
         graphReport.getData().add(series);
-        System.out.println(Arrays.toString(series.getData().toArray()));
+    }
+
+    @FXML
+    private void btnCSVAction() {
+        simulation.simulationReport.generateCSVFile();
     }
 
 }

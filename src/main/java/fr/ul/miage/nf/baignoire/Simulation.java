@@ -1,7 +1,13 @@
 package fr.ul.miage.nf.baignoire;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -38,12 +44,12 @@ public class Simulation {
     }
 
     public void writeInSimulationReport(){
-        simulationReport.reportingData.put(simulationReport.calculReportTime(), String.valueOf(baignoire.getVolume()));
+        simulationReport.reportingData.put(simulationReport.calculReportTime(), baignoire.getVolume());
 
     }
 
-    public void updateFuitesFinSimulation(){
-        simulationReport.fuitesEnd = fuites;
+    public void updateFuitesFinSimulation(List<Fuite> lf){
+        simulationReport.fuitesEnd = lf;
     }
 
     private ArrayList<Robinet> creationRobinets(int nbRobinets) {
@@ -57,5 +63,6 @@ public class Simulation {
                 .mapToObj(i -> new Fuite (i+1))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
+
 
 }

@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
@@ -241,7 +240,7 @@
                                     </Text>
                                     <HBox alignment="BOTTOM_CENTER" maxWidth="500.0" minHeight="360.0" minWidth="430.0">
                                        <children>
-                                          <Rectangle fx:id="baignoireImage" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="358.0" stroke="BLACK" strokeType="INSIDE" width="430.0" />
+                                          <Rectangle fx:id="baignoireImage" arcHeight="5.0" arcWidth="5.0" fill="#2e9fd0" height="358.0" stroke="BLACK" strokeType="INSIDE" width="430.0" />
                                        </children>
                                     </HBox>
                                     <Pane prefHeight="82.0" prefWidth="430.0">
@@ -275,25 +274,15 @@
                               </Text>
                            </top>
                            <center>
-                              <LineChart prefHeight="554.0" prefWidth="694.0" BorderPane.alignment="CENTER">
+                              <LineChart fx:id="graphReport" prefHeight="554.0" prefWidth="694.0" BorderPane.alignment="CENTER">
                                 <xAxis>
-                                  <CategoryAxis side="BOTTOM" />
+                                  <NumberAxis side="BOTTOM" fx:id="xAxis" />
                                 </xAxis>
                                 <yAxis>
-                                  <NumberAxis side="LEFT" />
+                                  <NumberAxis fx:id="yAxis" side="LEFT" />
                                 </yAxis>
                               </LineChart>
                            </center>
-                           <bottom>
-                              <Button mnemonicParsing="false" text="Télécharger le CSV" BorderPane.alignment="TOP_CENTER">
-                                 <BorderPane.margin>
-                                    <Insets bottom="10.0" left="5.0" right="5.0" top="-5.0" />
-                                 </BorderPane.margin>
-                                 <font>
-                                    <Font name="Roboto" size="14.0" />
-                                 </font>
-                              </Button>
-                           </bottom>
                            <left>
                               <Pane prefHeight="481.0" prefWidth="200.0" BorderPane.alignment="BOTTOM_CENTER">
                                  <children>
@@ -302,11 +291,29 @@
                                           <Font name="Roboto" size="14.0" />
                                        </font>
                                     </Text>
-                                    <TextArea layoutY="12.0" prefHeight="479.0" prefWidth="200.0">
+                                    <TextArea fx:id="infosTA" layoutY="12.0" prefHeight="246.0" prefWidth="200.0">
                                        <padding>
                                           <Insets left="5.0" />
                                        </padding>
+                                       <font>
+                                          <Font name="Roboto" size="13.0" />
+                                       </font>
                                     </TextArea>
+                                    <Button fx:id="clearGraphBtn" layoutX="60.0" layoutY="392.0" mnemonicParsing="false" onAction="#clearGraph" prefHeight="100.0" prefWidth="75.0">
+                                       <graphic>
+                                          <ImageView fitHeight="75.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/trash.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Label layoutX="48.0" layoutY="375.0" text="Vider le graphique" />
+                                    <Button fx:id="btnCSV" layoutX="29.0" layoutY="319.0" mnemonicParsing="false" onAction="#btnCSVAction" text="Télécharger le CSV">
+                                       <font>
+                                          <Font name="Roboto" size="14.0" />
+                                       </font>
+                                    </Button>
                                  </children>
                                  <BorderPane.margin>
                                     <Insets left="10.0" />
