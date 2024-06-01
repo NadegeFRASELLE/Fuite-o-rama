@@ -5,6 +5,7 @@ import org.apache.commons.csv.CSVPrinter;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -48,8 +49,10 @@ public class Simulation {
 
     }
 
-    public void updateFuitesFinSimulation(List<Fuite> lf){
-        simulationReport.fuitesEnd = lf;
+    public void eteindreSimulation(List<Fuite> listeFuites){
+        simulationReport.fuitesEnd = listeFuites;
+        simulationReport.finSimulation = Instant.now();
+        isSimulationRunning = false;
     }
 
     private ArrayList<Robinet> creationRobinets(int nbRobinets) {
@@ -63,6 +66,7 @@ public class Simulation {
                 .mapToObj(i -> new Fuite (i+1))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
+
 
 
 }

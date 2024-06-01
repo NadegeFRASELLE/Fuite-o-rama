@@ -33,7 +33,7 @@ public class SimulationReport {
     }
 
     public String afficherInfosSimulation() {
-        return "Le remplissage a pris " + calculerDureeSimulation() + ", soit " + convertMsToMinutes() + " millisecondes." +
+        return "Le remplissage a pris " + calculerDureeSimulation() + " millisecondes, soit " + convertMsToMinutes() +
                 "\n" +
                 robinets.size() + " robinets ont aidé à remplir cette baignoire de " + baignoire.getCapacite() + " litres.\n" +
                 "Il y avait " + fuitesStart.size() + " fuites au début, et " + fuitesEnd.size() + " fuites à la fin. \n" +

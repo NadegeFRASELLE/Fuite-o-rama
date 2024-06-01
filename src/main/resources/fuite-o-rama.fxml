@@ -17,6 +17,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -240,7 +241,16 @@
                                     </Text>
                                     <HBox alignment="BOTTOM_CENTER" maxWidth="500.0" minHeight="360.0" minWidth="430.0">
                                        <children>
-                                          <Rectangle fx:id="baignoireImage" arcHeight="5.0" arcWidth="5.0" fill="#2e9fd0" height="358.0" stroke="BLACK" strokeType="INSIDE" width="430.0" />
+                                          <StackPane alignment="BOTTOM_CENTER" prefHeight="150.0" prefWidth="200.0">
+                                             <children>
+                                                <Rectangle fx:id="baignoireImage" arcHeight="5.0" arcWidth="5.0" fill="#2e9fd0" height="358.0" stroke="BLACK" strokeType="INSIDE" width="430.0" />
+                                                <ImageView fx:id="photoBaignoire" fitHeight="372.0" fitWidth="493.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@images/baignoire.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </StackPane>
                                        </children>
                                     </HBox>
                                     <Pane prefHeight="82.0" prefWidth="430.0">
