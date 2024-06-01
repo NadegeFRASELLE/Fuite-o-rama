@@ -1,7 +1,5 @@
 package fr.ul.miage.nf.baignoire;
 
-import java.util.logging.Logger;
-
 /**
  * La classe Baignoire.
  */
@@ -12,14 +10,10 @@ public class Baignoire {
      */
     public static final double CAPACITE_DEFAUT = 200;
     /**
-     * La capacité maximum qu'on peut donner a la baignoire.
+     * La capacité maximum qu'on peut donner à la baignoire.
      * Ce nombre a été choisi pour que le remplissage de la baignoire ne dépasse pas sur d'autres éléments.
      */
     public static final double CAPACITE_MAX_BAIGNOIRE = 500;
-    /**
-     * Logger utilisé pour surveiller le bon déroulement de l'exécution.
-     */
-    private static final Logger LOG = Logger.getLogger(Baignoire.class.getName());
     /**
      * L'unique instance autorisée de la classe baignoire.
      */
