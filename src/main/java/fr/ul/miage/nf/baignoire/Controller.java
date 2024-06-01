@@ -1,8 +1,13 @@
 package fr.ul.miage.nf.baignoire;
 
+import javafx.application.Platform;
 import javafx.concurrent.ScheduledService;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -11,6 +16,8 @@ import javafx.stage.Window;
 import javafx.util.Duration;
 
 import java.time.Instant;
+import java.util.Arrays;
+import java.util.Map;
 import java.util.logging.Logger;
 
 public class Controller {
@@ -54,7 +61,19 @@ public class Controller {
     ListView<Fuite> listeFuites;
 
     @FXML
-    TextArea messages;
+    TextArea infosTA;
+
+    @FXML
+    CategoryAxis xAxis = new CategoryAxis();
+
+    @FXML
+    NumberAxis yAxis = new NumberAxis();
+
+    @FXML
+    LineChart<String, Number> graphReport = new LineChart<>(xAxis, yAxis);
+
+    @FXML
+    Button btnCSV;
 
     @FXML
     public void initialize() {
@@ -112,10 +131,12 @@ public class Controller {
     public void runningSimulation(Instant debutSimulation) {
         simulation.isSimulationRunning = true;
         simulation.baignoire.setVolume(0);
+        simulation.simulationReport = new SimulationReport(simulation.robinets, simulation.fuites, debutSimulation);
         simulation.robinets.forEach(robinet -> {
             robinet.setOnSucceeded((WorkerStateEvent e) -> {
+                simulation.writeInSimulationReport();
                 fillOrEmptyBaignoire();
-                baignoirePleineProcedure(debutSimulation, robinet);
+                baignoirePleineProcedure();
             });
             robinet.setPeriod(Duration.seconds(1));
             robinet.reset();
@@ -123,8 +144,9 @@ public class Controller {
         });
         simulation.fuites.forEach(fuite -> {
             fuite.setOnSucceeded((WorkerStateEvent e) -> {
+                simulation.writeInSimulationReport();
                 fillOrEmptyBaignoire();
-                baignoirePleineProcedure(debutSimulation, fuite);
+                baignoirePleineProcedure();
             });
             fuite.setPeriod(Duration.seconds(1));
             fuite.reset();
@@ -137,13 +159,15 @@ public class Controller {
         baignoireImage.setHeight(simulation.baignoire.getVolume());
     }
 
-    private void baignoirePleineProcedure(Instant debutSimulation, ScheduledService<Baignoire> service) {
+    private void baignoirePleineProcedure() {
         if(simulation.baignoire.estPleine()) {
-            java.time.Duration duration = java.time.Duration.between(debutSimulation, Instant.now()); //top chrono
-            messages.appendText("Temps de remplissage: " + duration.toMillis() + "ms"); // message
-            service.cancel(); //on arrête le service
-            boutonDemarrer.setDisable(false);
+            simulation.robinets.forEach(ScheduledService::cancel);
+            simulation.fuites.forEach(ScheduledService::cancel);
+            simulation.updateFuitesFinSimulation();
+            simulation.simulationReport.finSimulation = Instant.now();
+            buildLineChart();
             simulation.isSimulationRunning = false;
+            boutonDemarrer.setDisable(false);
 
         }
     }
@@ -264,6 +288,26 @@ public class Controller {
         listeFuites.getItems().remove(currentlySelectedFuite);
         currentlySelectedFuite = null;
         listeFuites.refresh();
+    }
+
+    private void buildLineChart() {
+        graphReport.setTitle("Évolution du volume de la baignoire");
+        xAxis.setLabel("Moment");
+        yAxis.setLabel("Volume de la baignoire");
+        XYChart.Series series = new XYChart.Series();
+        series.setName("Simulation du " + Instant.now());
+        for (Map.Entry<String, String> entry : simulation.simulationReport.reportingData.entrySet()) {
+            String rawDuration = entry.getKey(); // Clé en catégorie
+            Number y = Double.parseDouble(entry.getValue());
+
+            java.time.Duration duration = java.time.Duration.parse(rawDuration);
+            double seconds = duration.toMillis() / 1000.0;
+            String formattedDuration = String.format("%.3f", seconds);
+
+            series.getData().add(new XYChart.Data<>(formattedDuration, y));
+        }
+        graphReport.getData().add(series);
+        System.out.println(Arrays.toString(series.getData().toArray()));
     }
 
 }

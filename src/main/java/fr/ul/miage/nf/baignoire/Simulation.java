@@ -10,9 +10,9 @@ public class Simulation {
     Baignoire baignoire = Baignoire.getInstance();
     List<Robinet> robinets = new ArrayList<>();
     List<Fuite> fuites = new ArrayList<>();
+    SimulationReport simulationReport;
     boolean isSimulationRunning = false;
 
-//  ScheduledExecutorService pool = Executors.newScheduledThreadPool(calculerTailleThreadPool());
     private static final Logger LOG = Logger.getLogger(Simulation.class.getName());
 
     public Simulation(int numRobinets, int numFuites, double capaciteBaignoire) {
@@ -35,6 +35,15 @@ public class Simulation {
     public void reparerFuite(Fuite fuite) {
         fuite.cancel();
         LOG.info("La fuite n°" + fuite.getIdFuite() + " a été réparée.");
+    }
+
+    public void writeInSimulationReport(){
+        simulationReport.reportingData.put(simulationReport.calculReportTime(), String.valueOf(baignoire.getVolume()));
+
+    }
+
+    public void updateFuitesFinSimulation(){
+        simulationReport.fuitesEnd = fuites;
     }
 
     private ArrayList<Robinet> creationRobinets(int nbRobinets) {

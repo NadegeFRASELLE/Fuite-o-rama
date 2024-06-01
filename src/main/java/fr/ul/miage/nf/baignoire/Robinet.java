@@ -5,6 +5,7 @@ import javafx.concurrent.Task;
 import java.util.logging.Logger;
 
 public class Robinet extends ScheduledService<Baignoire> {
+
     private int idRobinet;
 
     private double debitRobinet;

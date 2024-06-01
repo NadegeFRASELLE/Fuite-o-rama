@@ -6,7 +6,7 @@ public class Baignoire {
 
     private double capacite = CAPACITE_DEFAUT;
 
-    private double volume = 0.0;
+    private double volume;
 
     /**
      * L'unique instance autorisée de la classe baignoire.
@@ -14,6 +14,8 @@ public class Baignoire {
     private static Baignoire INSTANCE;
 
     public static final double CAPACITE_DEFAUT = 200;
+
+    public static final double CAPACITE_MAX_BAIGNOIRE = 500;
 
     private static final Logger LOG = Logger.getLogger(Baignoire.class.getName());
 
@@ -48,7 +50,7 @@ public class Baignoire {
     }
 
     public void setCapacite(double capacite) {
-        this.capacite = capacite;
+        this.capacite = Math.max(0, Math.min(capacite, CAPACITE_MAX_BAIGNOIRE));
     }
 
     public void setVolume(double volume) {
