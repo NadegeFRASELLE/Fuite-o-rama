@@ -28,7 +28,7 @@ public class Simulation {
      */
     List<Fuite> fuites = new ArrayList<>();
     /**
-     * Le rapport de simulation dans lequel les ScheduledService<Baignoire> écrivent.
+     * Le rapport de simulation dans lequel les ScheduledService Baignoire écrivent.
      */
     SimulationReport simulationReport;
     /**
@@ -77,7 +77,7 @@ public class Simulation {
     }
 
     /**
-     * Méthode que les ScheduledService<Baignoire> utilisent pour écrire dans le rapport quand ils ont fini leur tâche préparée.
+     * Méthode que les ScheduledService Baignoire utilisent pour écrire dans le rapport quand ils ont fini leur tâche préparée.
      */
     public void writeInSimulationReport() {
         simulationReport.reportingData.put(simulationReport.calculReportTime(), baignoire.getVolume());

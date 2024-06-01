@@ -14,6 +14,9 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 
+/**
+ * La classe SimulationReport, qui permet de construire le graphique et le rapport de fin de la simulation.
+ */
 public class SimulationReport {
     /**
      * Logger utilisé pour surveiller le bon déroulement de l'exécution.
@@ -90,7 +93,6 @@ public class SimulationReport {
      * Génère un fichier CSV contenant les données de rapport de la simulation.
      * Le fichier généré reste actuellement dans le fichier source Fuite-O-Rama.
      *
-     * @throws IOException si une erreur d'E/S se produit lors de l'écriture dans le fichier CSV.
      */
     public void generateCSVFile() {
 

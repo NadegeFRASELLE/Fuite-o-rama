@@ -23,7 +23,7 @@ public class Launcher {
 
     /**
      * Méthode appelée au démarrage de l'application.
-     * @return
+     * @return le message de bienvenue préparé.
      */
     private static String demarrage() {
         return """

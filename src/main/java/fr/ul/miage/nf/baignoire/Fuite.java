@@ -46,7 +46,7 @@ public class Fuite extends ScheduledService<Baignoire> {
     /**
      * La tâche préparée que la fuite va effectuer quand on lui donne le top départ.
      *
-     * @return {Task<Baignoire>} La tâche préparée pour la classe Baignoire.
+     * @return {Task Baignoire } La tâche préparée pour la classe Baignoire.
      */
     @Override
     protected Task<Baignoire> createTask() {

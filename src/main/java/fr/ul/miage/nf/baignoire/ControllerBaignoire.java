@@ -19,12 +19,12 @@ import java.util.logging.Logger;
 /**
  * Classe Controller, qui permet de piloter l'interface graphique.
  */
-public class Controller {
+public class ControllerBaignoire {
 
     /**
      * Logger utilisé pour surveiller le bon déroulement de l'exécution.
      */
-    private static final Logger LOG = Logger.getLogger(Controller.class.getName());
+    private static final Logger LOG = Logger.getLogger(ControllerBaignoire.class.getName());
 
     /**
      * Le nombre maximum de fuites autorisées dans la simulation.
@@ -299,7 +299,7 @@ public class Controller {
 
     /**
      * On définit le comportement attendu d'un service préparé lorsqu'il réussit sa tache préparée.
-     * @param serviceList une liste d'objets qui héritent de ScheduledService<Baignoire> (Robinet ou Fuite)
+     * @param serviceList une liste d'objets qui héritent de ScheduledService Baignoire (Robinet ou Fuite)
      */
     private void setOnSucceededScheduledServices(List<? extends ScheduledService<Baignoire>> serviceList) {
         serviceList.forEach(service -> {
@@ -429,6 +429,7 @@ public class Controller {
 
     /**
      * Méthode utilisée pour décider si le bouton de création de simulation doit être désactivé ou non.
+     * @return {boolean} true s'il faut le désactiver, false sinon.
      */
     private boolean isCreationSimulationDisabled() {
         return fuitesTF.getText().isBlank() || robinetsTF.getText().isBlank()
