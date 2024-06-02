@@ -1,0 +1,8 @@
+site_name: Fuite-O-Rama
+nav:
+  - Accueil: index.md
+  - Installation: install.md
+  - Utilisation: use.md
+  - A propos: about.md
+
+use_directory_urls: false
