@@ -3,6 +3,9 @@
 Fuite-O-Rama est une simulation de remplissage de baignoire trouée qui permet d'obtenir une courbe de remplissage et un CSV à la fin de la simulation.
 
 # Lancer le projet
+## Prérequis
+Avant toute chose, il vous faudra [Java Development Kit (JDK) 17](https://www.oracle.com/fr/java/technologies/downloads/#java17) sur votre machine.
+
 ## Distribution Binaire
 Ouvrez un terminal et naviguez vers le répertoire du projet :
 
@@ -20,10 +23,9 @@ Enfin, lancez le projet :
 ./baignoire
 ```
 # Recompiler le projet
-## Prérequis 
-Si vous rencontrez un soucis et souhaitez recompiler le projet, il vous faudra avoir Maven et Java 17 :
-1. [Java Development Kit (JDK) 17](https://www.oracle.com/fr/java/technologies/downloads/#java17)
-2. [Apache Maven](https://maven.apache.org/download.cgi)
+## Prérequis
+
+Si vous rencontrez un soucis et souhaitez recompiler le projet, vous aurez besoin de [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## Procédure
 

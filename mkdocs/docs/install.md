@@ -2,6 +2,9 @@
 
 Ce guide vous aidera à mettre en place Fuite-O-Rama.
 
+## Prérequis
+Avant toute chose, il vous faudra [Java Development Kit (JDK) 17](https://www.oracle.com/fr/java/technologies/downloads/#java17) sur votre machine.
+
 ## Lancer le projet
 ### Distribution Binaire
 Ouvrez un terminal et naviguez vers le répertoire du projet :
@@ -22,10 +25,8 @@ Enfin, lancez le projet :
 ```
 ## Recompiler le projet
 ### Prérequis
-Si vous rencontrez un soucis et souhaitez recompiler le projet, il vous faudra avoir Maven et Java 17 :
-1. [Java Development Kit (JDK) 17](https://www.oracle.com/fr/java/technologies/downloads/#java17)
-2. [Apache Maven](https://maven.apache.org/download.cgi)
 
+Si vous rencontrez un soucis et souhaitez recompiler le projet, vous aurez besoin de [Apache Maven](https://maven.apache.org/download.cgi).
 ### Procédure
 
 Exécutez la commande suivante pour reconstruire le projet avec Maven :

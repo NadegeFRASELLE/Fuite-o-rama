@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Utilisation - Fuite-O-Rama</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Fuite-O-Rama</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="index.html" class="nav-link">Accueil</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="install.html" class="nav-link">Installation</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="use.html" class="nav-link">Utilisation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="about.html" class="nav-link">A propos</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="install.html" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="about.html" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#petit-guide-pour-une-premiere-utilisation-de-fuite-o-rama" class="nav-link">Petit guide pour une première utilisation de Fuite-O-Rama</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#etape-1-configuration-initiale" class="nav-link">Étape 1 : Configuration Initiale</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#etape-2-configuration-des-debits" class="nav-link">Étape 2 : Configuration des Débits</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#etape-3-interagir-avec-la-simulation" class="nav-link">Étape 3 : Interagir avec la Simulation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#etape-4-visualisation-des-resultats-de-la-simulation" class="nav-link">Étape 4 : Visualisation des résultats de la simulation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#etape-5-relancer-une-simulation" class="nav-link">Étape 5 : Relancer une Simulation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#quitter-lapplication" class="nav-link">Quitter l'Application</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="petit-guide-pour-une-premiere-utilisation-de-fuite-o-rama">Petit guide pour une première utilisation de Fuite-O-Rama</h1>
+<p>Afin de vous accompagner dans votre première utilisation de Fuite-O-Rama, nous vous proposons ce guide.</p>
+<h2 id="etape-1-configuration-initiale">Étape 1 : Configuration Initiale</h2>
+<p><img alt="Onglet Options" src="images/onglet-options.png" /></p>
+<h3 id="renseigner-les-informations-de-base">Renseigner les Informations de Base</h3>
+<p>Pour commencer, veuillez renseigner les informations suivantes :</p>
+<ol>
+<li><strong>Nombre de Robinets</strong> : Indiquez le nombre de robinets disponibles.</li>
+<li><strong>Nombre de Fuites</strong> : Indiquez le nombre de fuites présentes.</li>
+</ol>
+<p>Ces informations sont obligatoires pour démarrer l'application.</p>
+<h3 id="capacite-de-la-baignoire-optionnel">Capacité de la Baignoire (Optionnel)</h3>
+<p>Vous pouvez également renseigner la capacité de la baignoire si vous le souhaitez, bien que cette information soit optionnelle.</p>
+<p>Une fois ces informations saisies, l'application basculera automatiquement vers l'onglet <strong>Simulation</strong>.</p>
+<h2 id="etape-2-configuration-des-debits">Étape 2 : Configuration des Débits</h2>
+<p><img alt="Onglet Simulation" src="images/onglet-simulation-1.png" /></p>
+<p>Dans cet onglet, vous pouvez effectuer les configurations suivantes avant de démarrer la simulation :</p>
+<ol>
+<li><strong>Modifier le Débit des Fuites</strong> : Si vous souhaitez modifier le débit des fuites, faites-le à ce stade. Il ne sera plus possible de le changer après. Pour cela, cliquez sur une fuite pour ajuster son débit.</li>
+<li><strong>Modifier le Débit des Robinets</strong> : Cliquez sur un robinet pour ajuster son débit.</li>
+</ol>
+<p><img alt="Onglet Simulation - Modification débit robinet" src="images/modif-debit-robinet.png" /></p>
+<h3 id="demarrer-la-simulation">Démarrer la Simulation</h3>
+<p>Une fois les débits configurés, cliquez sur <strong>Démarrer la simulation</strong> pour lancer la simulation. Vous verrez la baignoire se remplir devant vos yeux.</p>
+<h2 id="etape-3-interagir-avec-la-simulation">Étape 3 : Interagir avec la Simulation</h2>
+<p>Pendant la simulation, vous pouvez effectuer les actions suivantes :</p>
+<ol>
+<li><strong>Réparer une Fuite</strong> : Si vous souhaitez réparer une fuite, cliquez sur la fuite que vous souhaitez réparer puis sur le bouton pansement.</li>
+</ol>
+<p>Une fois la simulation terminée, l'application basculera automatiquement vers l'onglet suivant.</p>
+<h2 id="etape-4-visualisation-des-resultats-de-la-simulation">Étape 4 : Visualisation des résultats de la simulation</h2>
+<p><img alt="Onglet Graph" src="images/onglet-graph.png" /></p>
+<h3 id="courbe-de-simulation">Courbe de Simulation</h3>
+<p>Une courbe représentant la courbe de remplissage de la baignoire sera générée dès que la simulation sera terminé. 
+Vous trouverez également des informations intéressantes sur la simulation à gauche de l'écran, comme le temps qu'il a fallu pour
+remplir la baignoire, le nombre de robinets ou encore le nombre de fuites réparées lors de la simulation.
+Sur l'axe X, vous voyez le temps écoulé depuis le début de la simulation, et sur l'axe Y le volume de la baignoire à un instant précis.</p>
+<h3 id="generer-un-csv">Générer un CSV</h3>
+<p>Si vous souhaitez obtenir un fichier CSV des résultats, cliquez sur le bouton <strong>Télécharger le CSV</strong>. Notez que ce fichier sera perdu si vous relancez une simulation. Le CSV sera disponible dans le dossier source du projet.</p>
+<h3 id="gestion-des-courbes">Gestion des Courbes</h3>
+<ul>
+<li><strong>Conservation des Courbes</strong> : La courbe sera conservée et si vous effectuez plusieurs simulations, plusieurs courbes seront disponibles.</li>
+<li><strong>Nettoyer les Courbes</strong> : Pour nettoyer les courbes, cliquez sur le bouton poubelle.</li>
+</ul>
+<h2 id="etape-5-relancer-une-simulation">Étape 5 : Relancer une Simulation</h2>
+<ul>
+<li>Pour relancer une simulation avec les mêmes paramètres, retournez à l'onglet <strong>Simulation</strong> et cliquez sur <strong>Démarrer la simulation</strong>.</li>
+<li>Pour modifier les paramètres, retournez à l'onglet <strong>Options</strong> et recommencez toute la procédure.</li>
+</ul>
+<h2 id="quitter-lapplication">Quitter l'Application</h2>
+<p>Pour quitter l'application, cliquez sur la croix rouge.</p>
+<p>Nous espérons que ce guide vous aidera à utiliser Fuite-O-Rama de manière agréable.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js"></script>
+        <script src="search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
