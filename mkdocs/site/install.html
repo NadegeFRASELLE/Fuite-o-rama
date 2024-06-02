@@ -80,6 +80,10 @@
             
             <li class="nav-item" data-level="1"><a href="#guide-dinstallation" class="nav-link">Guide d'Installation</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#prerequis" class="nav-link">Prérequis</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#lancer-le-projet" class="nav-link">Lancer le projet</a>
               <ul class="nav flex-column">
               </ul>
@@ -101,6 +105,8 @@
 
 <h1 id="guide-dinstallation">Guide d'Installation</h1>
 <p>Ce guide vous aidera à mettre en place Fuite-O-Rama.</p>
+<h2 id="prerequis">Prérequis</h2>
+<p>Avant toute chose, il vous faudra <a href="https://www.oracle.com/fr/java/technologies/downloads/#java17">Java Development Kit (JDK) 17</a> sur votre machine.</p>
 <h2 id="lancer-le-projet">Lancer le projet</h2>
 <h3 id="distribution-binaire">Distribution Binaire</h3>
 <p>Ouvrez un terminal et naviguez vers le répertoire du projet :</p>
@@ -113,10 +119,8 @@
 <pre><code>./baignoire
 </code></pre>
 <h2 id="recompiler-le-projet">Recompiler le projet</h2>
-<h3 id="prerequis">Prérequis</h3>
-<p>Si vous rencontrez un soucis et souhaitez recompiler le projet, il vous faudra avoir Maven et Java 17 :
-1. <a href="https://www.oracle.com/fr/java/technologies/downloads/#java17">Java Development Kit (JDK) 17</a>
-2. <a href="https://maven.apache.org/download.cgi">Apache Maven</a></p>
+<h3 id="prerequis_1">Prérequis</h3>
+<p>Si vous rencontrez un soucis et souhaitez recompiler le projet, vous aurez besoin de <a href="https://maven.apache.org/download.cgi">Apache Maven</a>.</p>
 <h3 id="procedure">Procédure</h3>
 <p>Exécutez la commande suivante pour reconstruire le projet avec Maven :</p>
 <p><code>mvn clean install</code></p>

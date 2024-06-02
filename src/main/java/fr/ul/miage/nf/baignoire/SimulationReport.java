@@ -96,7 +96,7 @@ public class SimulationReport {
      */
     public void generateCSVFile() {
 
-        String csvFilePath = "rapport_simulation_" + Instant.now() + ".csv";
+        String csvFilePath = "rapport_simulation_" + Instant.now().toEpochMilli() + ".csv";
 
         try (FileWriter fileWriter = new FileWriter(csvFilePath);
              CSVPrinter csvPrinter = new CSVPrinter(fileWriter, CSVFormat.DEFAULT)) {
